@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Prediction Result</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Student<span>AI</span>
+    </div>
+
+    <div class="nav-text">
+        Prediction Result
+    </div>
+
+</nav>
+
+
+<main class="result-wrapper">
+
+    <div class="result-card">
+
+        <div class="result-icon">
+            🎯
+        </div>
+
+        <h1>
+            Prediction Complete
+        </h1>
+
+        <p>
+            Estimated Mathematics Score
+        </p>
+
+
+        <div class="score">
+            {{ prediction }}
+        </div>
+
+
+        <div class="metrics">
+
+            <div class="metric-card">
+
+                <span>
+                    Model
+                </span>
+
+                <strong>
+                    {{ metrics.model_name }}
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    R² Score
+                </span>
+
+                <strong>
+                    {{ "%.3f"|format(metrics.r2_score) }}
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    MAE
+                </span>
+
+                <strong>
+                    {{ "%.2f"|format(metrics.mae) }}
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    RMSE
+                </span>
+
+                <strong>
+                    {{ "%.2f"|format(metrics.rmse) }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <p class="metric-description">
+
+            R² indicates how well the model explains
+            variation in the target. MAE and RMSE represent
+            prediction error on the test set.
+
+        </p>
+
+
+        <a
+            href="/"
+            class="back-btn"
+        >
+            Predict Another Student
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

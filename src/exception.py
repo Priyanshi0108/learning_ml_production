@@ -33,7 +33,10 @@ class MLProjectError(Exception):
                 f" | file={self.file_name}"
                 f" | line={self.line_number}"
             )
-        return f"{self.message}{location}"
+        original = "" 
+        if self.original_exception:
+            original = f"| cause = {self.original_exception}"    
+        return f"{self.message}{original}{location}"
 
 
 class DataIngestionError(MLProjectError):
