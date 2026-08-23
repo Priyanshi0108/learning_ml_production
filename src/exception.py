@@ -1,5 +1,5 @@
 import traceback
-
+from src.logger import logging
 class MLProjectError(Exception):
     def __init__(self,message:str,original_exception:Exception | None = None):
         self.message = message
